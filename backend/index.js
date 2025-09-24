@@ -1,10 +1,12 @@
 import express from 'express';
-import { PrismaClient } from '@prisma/client';  
+import { PrismaClient } from '@prisma/client';
 
 const app = express();
+app.use(express.json());
+
 const prisma = new PrismaClient();
 
-app.use(express.json());
+
 
 app.get('/pets', async (req, res) => {
   const pets = await prisma.pet.findMany();

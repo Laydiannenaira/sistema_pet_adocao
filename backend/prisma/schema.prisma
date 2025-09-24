@@ -6,3 +6,34 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Pet {
+  id          String   @id @default(uuid())
+  name        String
+  species     String
+  birth_date  DateTime
+  description String
+
+  adopter   Adopter? @relation(fields: [adopterId], references: [id])
+  adopterId String?  @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("pets")
+}
+
+model Adopter {
+  id      String @id @default(uuid())
+  name    String
+  email   String @unique
+  phone   String
+  address String
+
+  pet Pet?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("adopters")
+}
