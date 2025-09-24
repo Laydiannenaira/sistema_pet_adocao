@@ -6,3 +6,36 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+enum PetStatus {
+  available
+  adopted
+}
+
+model Adopter {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  phone     String?
+  address   String?
+  adoptions Adoption[]
+}
+
+model Pet {
+  id          Int       @id @default(autoincrement())
+  name        String
+  species     String
+  age         Int?
+  description String?
+  status      PetStatus @default(available)
+  adoptions   Adoption[]
+}
+
+model Adoption {
+  id           Int      @id @default(autoincrement())
+  petId        Int      @unique
+  adopterId    Int
+  adoptionDate DateTime @default(now())
+
+  pet     Pet     @relation(fields: [petId], references: [id])
+  adopter Adopter @relation(fields: [adopterId], references: [id])
+}
