@@ -1,41 +1,58 @@
+// Gera o cliente Prisma (é a biblioteca que você importa no Node.js)
 generator client {
   provider = "prisma-client-js"
 }
 
+// Configuração do banco de dados
+// - provider = tipo de banco (aqui PostgreSQL)
+// - url = vem da variável de ambiente DATABASE_URL no .env
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// Enum para status dos pets
+// - Mantemos em inglês no banco por boas práticas
+// - Depois, na API, traduzimos para o usuário (ex.: available → Disponível)
 enum PetStatus {
   available
   adopted
 }
 
+// Tabela de adotantes (Adopter)
+// - Representa quem adota os pets
 model Adopter {
-  id        Int       @id @default(autoincrement())
-  name      String
-  email     String    @unique
-  phone     String?
-  address   String?
-  adoptions Adoption[]
+  id        Int       @id @default(autoincrement()) // Chave primária, autoincremento
+  name      String                                  // Nome do adotante
+  email     String    @unique                       // E-mail único
+  phone     String?                                 // Telefone (opcional)
+  address   String?                                 // Endereço (opcional)
+  adoptions Adoption[]                              // Relacionamento: um adotante pode ter várias adoções
 }
 
+// Tabela de pets (Pet)
+// - Representa os animais disponíveis para adoção
 model Pet {
-  id          Int       @id @default(autoincrement())
-  name        String
-  species     String
-  age         Int?
-  description String?
-  status      PetStatus @default(available)
-  adoptions   Adoption[]
+  id          Int       @id @default(autoincrement()) // Chave primária
+  name        String                                  // Nome do pet
+  species     String                                  // Espécie (cachorro, gato, etc.)
+  age         Int?                                    // Idade aproximada (opcional)
+  description String?                                 // Descrição do pet
+  status      PetStatus @default(available)           // Status (available/adopted), padrão "available"
+  adoptions   Adoption[]                              // Relacionamento: um pet pode estar em uma adoção
 }
 
+// Tabela de adoções (Adoption)
+// - Relaciona Pet e Adopter
+// - Cada pet só pode ter uma adoção registrada (petId é único)
 model Adoption {
-  id           Int      @id @default(autoincrement())
-  petId        Int      @unique
-  adopterId    Int
-  adoptionDate DateTime @default(now())
+  id           Int      @id @default(autoincrement()) // Chave primária
+  petId        Int      @unique                       // FK para Pet
+                                                    // @unique → garante que um pet só pode ser adotado uma vez
+  adopterId    Int                                    // FK para Adopter
+  adoptionDate DateTime @default(now())               // Data da adoção (padrão = agora)
 
+  // Relacionamentos
   pet     Pet     @relation(fields: [petId], references: [id])
   adopter Adopter @relation(fields: [adopterId], references: [id])
 }
