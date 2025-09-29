@@ -8,11 +8,10 @@ import { PrismaClient, Prisma } from "@prisma/client";
 const app = express();
 app.use(express.json());
 
-const prisma = new PrismaClient();
 
 
 /* ---------- INICIALIZAÇÃO ---------- */
-const app = express(); // Cria a instância do Express
+
 const prisma = new PrismaClient(); // Cria o cliente do Prisma para fazer queries no banco
 app.use(express.json()); // Permite que o Express interprete JSON no body das requisições
 
