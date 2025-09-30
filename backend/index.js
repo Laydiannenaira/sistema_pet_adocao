@@ -1,4 +1,5 @@
 /* ---------- IMPORTS ---------- */
+import 'dotenv/config';
 // Importa o framework Express para criar o servidor web
 import express from "express";
 // Importa o PrismaClient para acessar o banco de dados e Prisma para tratar erros conhecidos
@@ -104,6 +105,47 @@ app.post("/pets", async (req, res) => {
     return res.status(500).json({ error: "Erro ao criar pet" });
   }
 });
+
+// DELETANDO UM PET 
+// router.delete 
+// Esta rota só vai funcionar com o método HTTP DELETE, CONTROLLER PARA PETS
+const PetController = {
+
+  // Função para deletar um pet
+  async delete(request, response) {
+    try {
+      // 1. Pega o ID que vem da URL (ex: /pets/123)
+      const { id } = request.params;
+      const petId = Number(id); // Converte o ID para número
+
+      // 2. Verifica se um pet com esse ID realmente existe no banco
+      const petExists = await prisma.pet.findUnique({
+        where: { id: petId },
+      });
+
+      // 3. Se o pet NÃO for encontrado, lança um erro (NOTE O "!")
+      if (!petExists) {
+        throw new Error('Pet não encontrado.'); // Este erro será capturado pelo 'catch'
+      }
+
+      // 4. Se o pet existir, manda o Prisma deletá-lo
+      await prisma.pet.delete({
+        where: { id: petId },
+      });
+
+      // 5. Retorna uma resposta de sucesso, sem conteúdo.
+      return response.status(204).send();
+
+    } catch (error) {
+      // 6. Se qualquer coisa no bloco 'try' der errado, cai aqui.
+      return response.status(400).json({ error: error.message });
+    }
+  }
+
+  // ... outras funções do controller de pets viriam aqui ...
+};
+
+app.delete('/pets/:id', PetController.delete);
 
 /* ---------- ROTAS ADOPTERS ---------- */
 
