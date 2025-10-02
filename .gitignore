@@ -1,4 +1,17 @@
 
+#Referente a pasta que contém no (WebStorm, Jetbrains FDP)
+.idea
+
 /backend/.gitignore
+
+#Variaveis de ambiente
 .env
+
+#Cache de libs
 node_modules/
+
+#Arquivo que contem no Mac
+.DS_Store
+
+#Dependencies
+package-lock.json
