@@ -1,0 +1,28 @@
+@media (max-width: 768px) {
+  .footer {
+    padding: 0.25rem 0;
+    margin-top: 1.5rem;
+  }
+  .footer p {
+    font-size: 0.8rem;
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 0.5rem 0;
+  margin-top: 3rem; 
+  background-color: var(--color-black);
+  color: var(--color-bg);
+  text-align: center;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+}
+
+.footer hr {
+  width: 60%;  
+  margin: 10px auto;
+  border: 0;
+  border-top: 1px solid var(--color-bg);
+  opacity: 0.3;
+}

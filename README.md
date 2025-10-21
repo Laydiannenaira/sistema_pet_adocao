@@ -128,3 +128,4 @@ Cada membro deve detalhar sua contribuição no GitHub antes da entrega.
 - **Backend:** 05/10/2025  
 - **Frontend:** 25/10/2025
 
+>>>>>>> equipe/feature/front-end-Sérgio
