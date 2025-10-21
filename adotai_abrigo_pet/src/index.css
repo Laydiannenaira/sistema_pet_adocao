@@ -24,3 +24,15 @@ body {
   background-color: var(--color-bg);
   color: var(--color-black);
 }
+
+/* App ocupando toda a altura da tela */
+#root, .App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Conteúdo principal "empurra" footer para baixo */
+.main-content {
+  flex-grow: 1;
+}

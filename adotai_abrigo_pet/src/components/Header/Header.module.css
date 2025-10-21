@@ -1,10 +1,8 @@
 .header {
   width: 100%;
-  /* Cor branca para destacar do fundo bege do body */
   background-color: #fff; 
   padding: 1rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem; /* Adiciona espaço antes do conteúdo da página */
 }
 
 .navList {
@@ -14,24 +12,21 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1.5rem; /* Espaçamento entre os links */
+  gap: 1.5rem;
 }
 
 .navLink {
   font-family: var(--font-main);
   font-weight: 700;
   font-size: 1rem;
-  color: var(--color-black); /* Cor preta da paleta */
+  color: var(--color-black);
   text-decoration: none;
   padding: 0.5rem;
   transition: color 0.2s ease;
 }
 
-/* A MÁGICA ACONTECE AQUI! */
 .navLink:hover {
-  color: var(--color-orange); /* Muda para laranja ao passar o mouse */
-  
-  /* Pega o favicon.png da pasta 'public' e o transforma no cursor */
-  /* 'auto' é o fallback caso a imagem não carregue */
+  color: var(--color-orange);
+  /* Transforma o favicon em cursor */
   cursor: url('/favicon.png'), auto;
 }
