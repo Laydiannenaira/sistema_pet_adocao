@@ -1,5 +1,14 @@
-/* Este arquivo é idêntico ao PetForm.module.css */
-/* Isso garante consistência visual entre os formulários */
+@media (max-width: 768px) {
+  .formContainer {
+    width: 90%;
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem !important;
+  }
+}
 
 .formContainer {
   max-width: 600px;

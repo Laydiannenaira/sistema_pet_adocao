@@ -1,3 +1,16 @@
+@media (max-width: 768px) {
+  .historyContainer {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+
 .petImage {
   width: 100%;
   height: 200px;

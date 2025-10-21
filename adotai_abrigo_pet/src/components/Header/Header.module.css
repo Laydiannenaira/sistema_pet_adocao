@@ -1,3 +1,22 @@
+/*Responsividade*/
+@media (max-width: 768px) {
+
+  .header {
+    padding: 0 !important; 
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 0.1rem !important;
+    padding: 0.5rem 0 !important;
+  }
+  .navLink {
+    padding: 0.25rem 1rem !important;
+    text-align: center;
+    width: 100%;
+  }
+}
+
 .header {
   width: 100%;
   background-color: #fff; 

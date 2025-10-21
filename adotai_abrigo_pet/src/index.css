@@ -1,18 +1,21 @@
-/* Importa a fonte 'Nunito' do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
 
-/* Define suas cores da paleta como variáveis CSS para fácil reuso */
+@media (max-width: 768px) {
+  html {
+    font-size: 83%;
+  }
+}
+
 :root {
   --font-main: 'Nunito', sans-serif;
   
-  --color-bg: #FFF5E1;     /* Bege/Creme */
-  --color-orange: #FFA552; /* Laranja */
-  --color-lilac: #F9F5F2;  /* Lilás (pela imagem) */
-  --color-green: #9BE2A8;  /* Verde */
-  --color-black: #2C2C2C;  /* Preto */
+  --color-bg: #FFF5E1;     
+  --color-orange: #FFA552; 
+  --color-lilac: #F9F5F2;  
+  --color-green: #9BE2A8;  
+  --color-black: #2C2C2C;  
 }
 
-/* Reseta o básico e aplica a fonte e cor de fundo */
 * {
   margin: 0;
   padding: 0;
@@ -25,14 +28,13 @@ body {
   color: var(--color-black);
 }
 
-/* App ocupando toda a altura da tela */
+
 #root, .App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Conteúdo principal "empurra" footer para baixo */
 .main-content {
   flex-grow: 1;
 }
