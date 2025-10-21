@@ -28,5 +28,5 @@
 .navLink:hover {
   color: var(--color-orange);
   /* Transforma o favicon em cursor */
-  cursor: url('/favicon.png'), auto;
+  cursor: url('/faviconhover.png') 16 16, auto;
 }
