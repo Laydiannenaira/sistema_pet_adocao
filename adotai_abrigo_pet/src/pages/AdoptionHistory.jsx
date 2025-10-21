@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./AdoptionHistory.module.css";
-// --- DADOS MOCk ---
+// --- DADOS MOCkADOS ---
 // Isso vem do backend depois
 
 const mockAdoptions = [
@@ -52,7 +52,7 @@ const AdoptionHistory = () => {
             </p>
             <p className={styles.date}>
               {/* Formata a data para o padrão pt-BR */}
-              {/* Adicionado timeZone: 'UTC' para evitar erros de data de um dia para o outro */}
+              {/* Adiciona timeZone: 'UTC' e evita erros de data de um dia p/ o outro */}
               Adotado em:{" "}
               {new Date(adocao.data_adocao).toLocaleDateString("pt-BR", {
                 timeZone: "UTC",
