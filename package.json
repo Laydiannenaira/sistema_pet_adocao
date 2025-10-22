@@ -20,5 +20,7 @@
     "@prisma/client": "^6.16.3",
     "express": "^5.1.0",
     "prisma": "^6.16.2"
+  "dependencies": {
+    "react-router-dom": "^7.9.4"
   }
 }
