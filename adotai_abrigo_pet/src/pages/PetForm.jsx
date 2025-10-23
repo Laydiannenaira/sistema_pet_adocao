@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import styles from './PetForm.module.css';
 
-const PetForm = () => {
+const PetForm = ({ onAddPet }) => {
   const [nome, setNome] = useState('');
-  // Simplificado para 'cachorro' ou 'gato'
   const [especie, setEspecie] = useState('cachorro'); 
   const [dataNascimento, setDataNascimento] = useState('');
   const [descricao, setDescricao] = useState('');
-  const [status, setStatus] = useState('disponível');
 
   const handleSubmit = (e) => {
     e.preventDefault(); 
-    const petData = { nome, especie, dataNascimento, descricao, status };
-    console.log('Dados do Pet para enviar:', petData);
+    const petData = { nome, especie, dataNascimento, descricao };
     
-    // TODO: Enviar 'petData' para o Backend
+    onAddPet(petData);
     
-    alert('Pet cadastrado (simulação)!');
+    setNome('');
+    setEspecie('cachorro');
+    setDataNascimento('');
+    setDescricao('');
   };
 
   return (
@@ -24,7 +24,6 @@ const PetForm = () => {
       <h1 className={styles.title}>Cadastro de Pet</h1>
       
       <form onSubmit={handleSubmit}>
-        {/* Campo: Nome */}
         <div className={styles.formGroup}>
           <label htmlFor="nome">Nome do Pet</label>
           <input
@@ -36,7 +35,6 @@ const PetForm = () => {
           />
         </div>
 
-        {/* Campo: Espécie (ATUALIZADO) */}
         <div className={styles.formGroup}>
           <label htmlFor="especie">Espécie</label>
           <select 
@@ -44,13 +42,11 @@ const PetForm = () => {
             value={especie} 
             onChange={(e) => setEspecie(e.target.value)}
           >
-            {/* Opções agora restritas a cachorro e gato */}
             <option value="cachorro">Cachorro</option>
             <option value="gato">Gato</option>
           </select>
         </div>
 
-        {/* Campo: Data de Nascimento */}
         <div className={styles.formGroup}>
           <label htmlFor="dataNascimento">Data de Nascimento (Aprox.)</label>
           <input
@@ -62,7 +58,6 @@ const PetForm = () => {
           />
         </div>
 
-        {/* Campo: Descrição */}
         <div className={styles.formGroup}>
           <label htmlFor="descricao">Descrição (Personalidade, etc.)</label>
           <textarea
@@ -72,20 +67,6 @@ const PetForm = () => {
             onChange={(e) => setDescricao(e.target.value)}
           />
         </div>
-        
-        {/* Campo: Status */}
-        <div className={styles.formGroup}>
-          <label htmlFor="status">Status Inicial</label>
-          <select 
-            id="status" 
-            value={status} 
-            onChange={(e) => setStatus(e.target.value)}
-          >
-            <option value="disponível">Disponível</option>
-            <option value="adotado">Adotado</option>
-          </select>
-        </div>
-
         <button type="submit" className={styles.submitButton}>
           Cadastrar Pet
         </button>
