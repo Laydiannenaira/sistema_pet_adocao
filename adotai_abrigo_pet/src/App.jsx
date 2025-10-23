@@ -9,6 +9,7 @@ import PetList from "./pages/PetList";
 import { allPetsData } from "./data/petsData";
 import { allAdoptersData } from "./data/adoptersData";
 import { allAdoptionsData } from "./data/adoptionsData";
+import Home from "./pages/Home";
 
 function App() {
   const [pets, setPets] = useState(allPetsData);
@@ -88,7 +89,7 @@ function App() {
       <main className="main-content">
         <Routes>
           {/* A Rota Home ainda está vazia */}
-          <Route path="/" element={<></>} />
+          <Route path="/" element={<Home/>} />
           
           <Route 
             path="/pets" 
