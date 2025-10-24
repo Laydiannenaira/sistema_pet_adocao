@@ -19,7 +19,7 @@ function App() {
           <Route path="/cadastrar-pet" element={<PetForm />} />
           <Route path="/cadastrar-adotante" element={<AdopterForm />} />
           <Route path="/historico" element={<AdoptionHistory />} />
-          <Route path="/pets" element={<PetList />} />
+          <Route path="/pets" element={<></>} />
         </Routes>
       </main>
 
