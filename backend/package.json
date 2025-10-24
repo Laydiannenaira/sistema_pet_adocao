@@ -2,9 +2,7 @@
   "name": "pet_adoption",
   "version": "1.0.0",
   "description": "Sistema de adoção de pets",
-  "type": "module",
   "main": "index.js",
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --watch index.js"
@@ -12,13 +10,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^24.6.1",
+    "prisma": "^6.18.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@prisma/client": "^6.16.3",
-    "express": "^5.1.0",
-    "prisma": "^6.16.2"
+    "@prisma/client": "^6.18.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
   }
 }

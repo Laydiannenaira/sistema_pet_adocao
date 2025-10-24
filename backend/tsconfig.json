@@ -5,7 +5,7 @@
 
   "compilerOptions": {
     "lib": ["es2024", "ESNext.Array", "ESNext.Collection", "ESNext.Iterator"],
-    "module": "nodenext",
+    "module": "commonjs",
     "target": "es2022",
 
     "strict": true,

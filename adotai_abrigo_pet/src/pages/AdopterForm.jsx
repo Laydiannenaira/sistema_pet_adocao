@@ -4,23 +4,42 @@ import styles from './AdopterForm.module.css';
 
 const AdopterForm = () => {
   // Estados para cada campo do formulário, conforme PDF 
-  const [nome, setNome] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [endereco, setEndereco] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   const adopterData = { nome, email, telefone, endereco };
+    
+  //   console.log('Dados do Adotante para enviar:', adopterData);
+    
+  //   // TODO: Enviar 'adopterData' para o seu Backend
+  //   // Ex: fetch('/api/adotantes', { method: 'POST', body: JSON.stringify(adopterData) })
+
+    
+
+  //   alert('Adotante cadastrado (simulação)!');
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const adopterData = { nome, email, telefone, endereco };
-    
-    console.log('Dados do Adotante para enviar:', adopterData);
-    
-    // TODO: Enviar 'adopterData' para o seu Backend
-    // Ex: fetch('/api/adotantes', { method: 'POST', body: JSON.stringify(adopterData) })
-
-    alert('Adotante cadastrado (simulação)!');
+    const adopterData = { name, email, phone, address };
+    try {
+      await fetch('http://localhost:3000/adopters', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(adopterData)
+      });
+      alert('Adotante cadastrado!');
+      setName(""); setEmail(""); setPhone(""); setAddress("");
+    } catch (err) {
+      alert("Erro ao cadastrar!");
+    }
   };
+  
 
   return (
     <div className={styles.formContainer}>
@@ -33,8 +52,8 @@ const AdopterForm = () => {
           <input
             type="text"
             id="nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -57,8 +76,8 @@ const AdopterForm = () => {
           <input
             type="tel" // Tipo 'tel' é bom para semântica
             id="telefone"
-            value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             placeholder="(XX) XXXXX-XXXX"
             required
           />
@@ -70,8 +89,8 @@ const AdopterForm = () => {
           <input
             type="text"
             id="endereco"
-            value={endereco}
-            onChange={(e) => setEndereco(e.target.value)}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
             required
           />
         </div>

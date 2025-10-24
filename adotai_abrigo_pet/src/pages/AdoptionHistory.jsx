@@ -3,33 +3,35 @@ import styles from "./AdoptionHistory.module.css";
 // --- DADOS MOCkADOS ---
 // Isso vem do backend depois
 
-const mockAdoptions = [
-  {
-    id: 1,
-    data_adocao: "2025-10-01",
-    pet: { nome: "Fumaça", especie: "gato", imgUrl: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1143" },
-    adotante: { nome: "Maria Silva" },
-  },
-  {
-    id: 2,
-    data_adocao: "2025-09-15",
-    pet: { nome: "Rex", especie: "cachorro", imgUrl: "https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=686" },
-    adotante: { nome: "João Souza" },
-  },
-  {
-    id: 3,
-    data_adocao: "2025-09-05",
-    pet: { nome: "Mia", especie: "gato", imgUrl: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" },
-    adotante: { nome: "Ana Pereira" },
-  },
-];
+// const mockAdoptions = [
+//   {
+//     id: 1,
+//     data_adocao: "2025-10-01",
+//     pet: { nome: "Fumaça", especie: "gato", imgUrl: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1143" },
+//     adotante: { nome: "Maria Silva" },
+//   },
+//   {
+//     id: 2,
+//     data_adocao: "2025-09-15",
+//     pet: { nome: "Rex", especie: "cachorro", imgUrl: "https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=686" },
+//     adotante: { nome: "João Souza" },
+//   },
+//   {
+//     id: 3,
+//     data_adocao: "2025-09-05",
+//     pet: { nome: "Mia", especie: "gato", imgUrl: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" },
+//     adotante: { nome: "Ana Pereira" },
+//   },
+// ];
 // --- FIM DO MOCk ---
 
 const AdoptionHistory = () => {
   const [adoptions, setAdoptions] = useState([]);
 
   useEffect(() => {
-    setAdoptions(mockAdoptions);
+    fetch('http://localhost:3000/adoptions')
+      .then(res => res.json())
+      .then(data => setAdoptions(data));
   }, []);
 
   return (

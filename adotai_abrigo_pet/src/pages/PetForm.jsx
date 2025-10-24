@@ -2,22 +2,39 @@ import React, { useState } from 'react';
 import styles from './PetForm.module.css';
 
 const PetForm = () => {
-  const [nome, setNome] = useState('');
+  const [name, setName] = useState('');
   // Simplificado para 'cachorro' ou 'gato'
-  const [especie, setEspecie] = useState('cachorro'); 
-  const [dataNascimento, setDataNascimento] = useState('');
-  const [descricao, setDescricao] = useState('');
-  const [status, setStatus] = useState('disponível');
+  const [species, setSpecies] = useState('cachorro'); 
+  const [age, setAge] = useState('');
+  const [description, setDescription] = useState('');
+  const [status, setStatus] = useState('available');
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); 
-    const petData = { nome, especie, dataNascimento, descricao, status };
-    console.log('Dados do Pet para enviar:', petData);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault(); 
+  //   const petData = { nome, especie, dataNascimento, descricao, status };
+  //   console.log('Dados do Pet para enviar:', petData);
     
-    // TODO: Enviar 'petData' para o Backend
+  //   // TODO: Enviar 'petData' para o Backend
     
-    alert('Pet cadastrado (simulação)!');
+  //   alert('Pet cadastrado (simulação)!');
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const petData = { name, species, age, description, status };
+    try {
+      await fetch('http://localhost:3000/pets', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(petData)
+      });
+      alert('Pet cadastrado!');
+      setName(""); setSpecies("cachorro"); setAge(""); setDescription(""); setStatus("available");
+    } catch (err) {
+      alert("Erro ao cadastrar pet!");
+    }
   };
+
 
   return (
     <div className={styles.formContainer}>
@@ -30,8 +47,8 @@ const PetForm = () => {
           <input
             type="text"
             id="nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -39,10 +56,10 @@ const PetForm = () => {
         {/* Campo: Espécie (ATUALIZADO) */}
         <div className={styles.formGroup}>
           <label htmlFor="especie">Espécie</label>
-          <select 
-            id="especie" 
-            value={especie} 
-            onChange={(e) => setEspecie(e.target.value)}
+          <select
+            id="especie"
+            value={species}
+            onChange={(e) => setSpecies(e.target.value)}
           >
             {/* Opções agora restritas a cachorro e gato */}
             <option value="cachorro">Cachorro</option>
@@ -50,14 +67,14 @@ const PetForm = () => {
           </select>
         </div>
 
-        {/* Campo: Data de Nascimento */}
+        {/* Campo: Idade */}
         <div className={styles.formGroup}>
-          <label htmlFor="dataNascimento">Data de Nascimento (Aprox.)</label>
+          <label htmlFor="idade">Idade (Aprox.)</label>
           <input
-            type="date"
-            id="dataNascimento"
-            value={dataNascimento}
-            onChange={(e) => setDataNascimento(e.target.value)}
+            type="number"
+            id="idade"
+            value={age}
+            onChange={(e) => setAge(parseInt(e.target.value))}
             required
           />
         </div>
@@ -68,8 +85,8 @@ const PetForm = () => {
           <textarea
             id="descricao"
             rows="4"
-            value={descricao}
-            onChange={(e) => setDescricao(e.target.value)}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         
@@ -81,8 +98,8 @@ const PetForm = () => {
             value={status} 
             onChange={(e) => setStatus(e.target.value)}
           >
-            <option value="disponível">Disponível</option>
-            <option value="adotado">Adotado</option>
+            <option value="available">Disponível</option>
+            <option value="adopted">Adotado</option>
           </select>
         </div>
 
