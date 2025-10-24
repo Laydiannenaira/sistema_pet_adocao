@@ -65,12 +65,12 @@
   font-family: var(--font-main);
   font-size: 1.1rem;
   font-weight: 700;
-  /* Cor laranja da paleta */
-  background-color: var(--color-orange); 
-  color: var(--color-black);
+  background-color: var(--color-orange-100); 
+  color: white;
   transition: transform 0.2s ease;
 }
 
 .submitButton:hover {
+  background-color: var(--color-orange-200);
   transform: scale(1.02);
 }

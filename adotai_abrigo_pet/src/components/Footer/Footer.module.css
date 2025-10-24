@@ -3,6 +3,7 @@
     padding: 0.25rem 0;
     margin-top: 1.5rem;
   }
+
   .footer p {
     font-size: 0.8rem;
   }
@@ -10,19 +11,114 @@
 
 .footer {
   width: 100%;
+  height: 350px;
   padding: 0.5rem 0;
-  margin-top: 3rem; 
-  background-color: var(--color-black);
+  background-color: var(--color-purple-100);
   color: var(--color-bg);
   text-align: center;
   font-family: var(--font-main);
   font-size: 0.9rem;
 }
 
-.footer hr {
-  width: 60%;  
-  margin: 10px auto;
-  border: 0;
-  border-top: 1px solid var(--color-bg);
-  opacity: 0.3;
+.footerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 2rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  text-align: justify;
+  margin: 4rem 0;
+}
+
+.column h4 {
+  font-weight: 800;
+  margin: 0 0.5rem;
+  font-size: 1.1rem;
+  color: var(--color-bg-100);
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.column li {
+  margin: 0.3rem 0;
+}
+
+.navList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.navLink {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-bg-100);
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--color-green-200);
+  /* Transforma o favicon em cursor */
+  cursor: url('/faviconhover.png') 16 16, auto;
+}
+
+.footerBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.logoContainer img {
+  height: 40px;
+  margin: 2rem 0;
+}
+
+.footerBottom p {
+  font-size: 0.85rem;
+  color: var(--color-bg-100);
+}
+
+@media (max-width: 1024px) {
+  .links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .column h4 {
+    font-size: 1rem;
+  }
 }

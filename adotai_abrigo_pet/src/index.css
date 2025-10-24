@@ -8,12 +8,20 @@
 
 :root {
   --font-main: 'Nunito', sans-serif;
-  
-  --color-bg: #FFF5E1;     
-  --color-orange: #FFA552; 
-  --color-lilac: #F9F5F2;  
-  --color-green: #9BE2A8;  
-  --color-black: #2C2C2C;  
+
+  --color-bg-100: #fafafa;
+  --color-bg-200: #fffafa;
+  --color-blue-100: #6BB6D2;
+  --color-orange-100: #F06A23;
+  --color-orange-200: rgb(243, 147, 58);
+  --color-orange-00: #D89A1A;
+  --color-lilac: #F9F5F2;
+  --color-green-100: #5DC538;
+  --color-green-200: #9BE2A8;
+  --color-purple-100: #876ecb;
+  --color-purple-200: #fbf8fe;
+  --color-gray: #c2c2c2;
+  --color-black: #2C2C2C;
 }
 
 * {
@@ -24,12 +32,13 @@
 
 body {
   font-family: var(--font-main);
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-100);
   color: var(--color-black);
 }
 
 
-#root, .App {
+#root,
+.App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;

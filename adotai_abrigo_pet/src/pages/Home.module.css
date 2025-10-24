@@ -1,0 +1,240 @@
+.firstSection {
+    display: flex;
+    min-height: 700px;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-purple-100);
+    color: white;
+    padding: 10px 0;
+}
+
+.fsText {
+    text-align: justify;
+    margin: 2rem 4rem;
+}
+
+.fsText h1{
+    padding: 1rem 0;
+}
+
+.fsImage {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.fsImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.adoptButton {
+    background-color: var(--color-orange-100);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 4rem 0;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.adoptButton:hover {
+    background-color: var(--color-orange-200);
+    transform: scale(1.05);
+}
+
+.secondSection {
+    height: 800px;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('/sections-photos/paws.png');
+    background-repeat: repeat;
+    color: var(--color-purple-100);
+    text-align: center;
+    padding: 20px 0;
+}
+
+.petsContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.secondSection h2 {
+    color: var(--color-black);
+    margin: 4rem 0;
+    font-size: 1.3rem;
+}
+
+.secondSectionText {
+    color: var(--color-purple-100);
+    font-weight: bold;
+}
+
+.petsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.petShape {
+    width: 200px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid transparent;
+    border-radius: 100px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.petShape img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    object-fit: cover;
+}
+
+.blue {
+    border-color: var(--color-blue-100);
+    background-color: var(--color-blue-100);
+}
+
+.orange {
+    border-color: var(--color-orange-100);
+    background-color: var(--color-orange-100);
+}
+
+.green {
+    border-color: var(--color-green-100);
+    background-color: var(--color-green-100);
+}
+
+.purple {
+    border-color: var(--color-purple-100);
+    background-color: var(--color-purple-100);
+}
+
+.thirdSection {
+    min-height: 600px;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-black);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.thirdSection h2 {
+    font-size: 2rem;
+    margin: 0 0 2rem 0 0;
+    color: var(--color-orange-100);
+}
+
+.responsibilityCards {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: var(--color-bg-100);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.iconCircle {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--coolor);
+    margin: 0 auto 1rem auto;
+}
+
+.cardIcon {
+    font-size: 2.5rem;
+    color: var(--color-bg-100);
+}
+
+.health {
+    background-color: var(--color-blue-100);
+}
+
+.food {
+    background-color: var(--color-orange-100);
+}
+
+.fun {
+    background-color: var(--color-green-100);
+}
+
+.love {
+    background-color: var(--color-purple-100);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: var(--color-gray-700);
+    text-align: justify;
+}
+
+@media (max-width: 900px) {
+    .firstSection {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 1rem;
+    }
+
+    .fsText {
+        margin: 2rem 0;
+    }
+
+    .secondSection,
+    .thirdSection {
+        padding: 3rem 1rem;
+    }
+
+    .responsibilityCards {
+        flex-direction: column;
+        align-items: center;
+        gap: 2 rem;
+    }
+
+    .card {
+        width: 90%;
+    }
+}

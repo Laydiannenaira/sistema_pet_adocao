@@ -7,6 +7,12 @@ const Header = () => {
     <header className={styles.header}>
       <nav>
         <ul className={styles.navList}>
+          <div className={styles.logoContainer}>
+            <Link to="/">
+              <img src="/logo.png" alt="Logo Adotaí" className={styles.logo} />
+            </Link>
+          </div>
+          
           <li>
             <Link to="/" className={styles.navLink}>
               Home
