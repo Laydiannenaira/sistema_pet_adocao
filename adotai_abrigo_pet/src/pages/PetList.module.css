@@ -1,15 +1,15 @@
 @media (max-width: 768px) {
-  .historyContainer {
+  
+  .listContainer {
     padding: 1rem;
     margin-top: 1rem;
   }
 
   .title {
-    font-size: 1.8rem;
+    font-size: 1.8rem !important;
     margin-bottom: 1.5rem;
   }
 }
-
 
 .petImage {
   width: 100%;
@@ -19,7 +19,7 @@
   margin-bottom: 1rem;
 }
 
-.historyContainer {
+.listContainer {
   max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
@@ -35,17 +35,16 @@
 
 .list {
   display: grid;
-  /* Grid responsivo de cards */
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
 .card {
   background-color: #fff;
-  border-radius: 16px;
+  border-radius: 16px; 
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-left: 5px solid var(--color-green);
+  border-left: 5px solid var(--color-orange);
 }
 
 .petName {
@@ -67,18 +66,17 @@
 .date {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--color-orange);
+  color: var(--color-orange); 
   margin-top: 1rem;
   text-align: right;
   padding: 0 1rem;
 }
 
-/* Estilos do Filtro */
 .filterContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column; 
+  align-items: center;    
+  gap: 0.75rem; 
   margin-bottom: 2rem;
   font-family: var(--font-main);
   font-weight: 700;
@@ -86,9 +84,9 @@
 
 .filterOptions {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 1.5rem; 
 }
 
 .filterContainer label {
@@ -100,4 +98,24 @@
 
 .filterContainer input[type="radio"] {
   accent-color: var(--color-orange); 
+}
+
+.adoptButton {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1rem; 
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-orange); 
+  color: var(--color-black);
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  font-weight: 800;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: url('/faviconhover.png') 16 16, auto;
+}
+
+.adoptButton:hover {
+  transform: scale(1.03); 
+  box-shadow: 0 4px 15px rgba(255, 121, 0, 0.4); 
 }

@@ -1,21 +1,20 @@
-import React, { useState } from "react";
-import styles from "./AdoptionHistory.module.css";
+import React, { useState } from "react"; 
+import styles from "./PetList.module.css"; 
 
-const AdoptionHistory = ({ adoptions }) => {
-  
-  const [specieFilter, setSpecieFilter] = useState('ambos');
-
-  const filteredAdoptions = adoptions.filter(adocao => {
+const PetList = ({ availablePets, onAdopt }) => {
+  const [specieFilter, setSpecieFilter] = useState('ambos'); 
+  const filteredPets = availablePets.filter(item => {
+    
     if (specieFilter === 'ambos') {
-      return true;
+      return true; 
     }
-    return adocao.pet.especie === specieFilter;
+
+    return item.especie === specieFilter;
   });
 
   return (
-    <div className={styles.historyContainer}>
-      <h1 className={styles.title}>Histórico de Adoções</h1>
-
+    <div className={styles.listContainer}> 
+      <h1 className={styles.title}>Pets Disponíveis para Adoção</h1>
       <div className={styles.filterContainer}>
         <strong>Filtrar por espécie:</strong>
         <div className={styles.filterOptions}>
@@ -35,26 +34,27 @@ const AdoptionHistory = ({ adoptions }) => {
       </div>
 
       <div className={styles.list}>
-        {filteredAdoptions.map((adocao) => (
-          <div key={adocao.id} className={styles.card}>
+        {filteredPets.map((item) => (
+          <div key={item.id} className={styles.card}>
             <img
-              src={adocao.pet.imgUrl}
-              alt={`Foto de ${adocao.pet.nome}, um ${adocao.pet.especie}`}
+              src={item.imgUrl} 
+              alt={`Foto de ${item.nome}, um ${item.especie}`}
               className={styles.petImage}
             />
-            <h2 className={styles.petName}>{adocao.pet.nome}</h2>
+            <h2 className={styles.petName}>{item.nome}</h2>
             <p className={styles.info}>
-              <strong>Adotado por:</strong> {adocao.adotante.nome}
+              <strong>Espécie:</strong> {item.especie}
             </p>
             <p className={styles.info}>
-              <strong>Espécie:</strong> {adocao.pet.especie}
+              <strong>Descrição:</strong> {item.descricao}
             </p>
-            <p className={styles.date}>
-              Adotado em:{" "}
-              {new Date(adocao.data_adocao).toLocaleDateString("pt-BR", {
-                timeZone: "UTC",
-              })}
-            </p>
+
+            <button 
+              className={styles.adoptButton}
+              onClick={() => onAdopt(item)}
+            >
+              Adotar {item.nome}
+            </button>
           </div>
         ))}
       </div>
@@ -62,4 +62,4 @@ const AdoptionHistory = ({ adoptions }) => {
   );
 };
 
-export default AdoptionHistory;
+export default PetList;

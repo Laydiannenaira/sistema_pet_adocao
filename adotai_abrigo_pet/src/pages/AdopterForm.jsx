@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-// Vamos usar um novo arquivo CSS, mas com as mesmas classes
 import styles from './AdopterForm.module.css'; 
 
-const AdopterForm = () => {
-  // Estados para cada campo do formulário, conforme PDF 
+const AdopterForm = ({ onAddAdopter }) => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
@@ -14,12 +12,12 @@ const AdopterForm = () => {
 
     const adopterData = { nome, email, telefone, endereco };
     
-    console.log('Dados do Adotante para enviar:', adopterData);
+    onAddAdopter(adopterData);
     
-    // TODO: Enviar 'adopterData' para o seu Backend
-    // Ex: fetch('/api/adotantes', { method: 'POST', body: JSON.stringify(adopterData) })
-
-    alert('Adotante cadastrado (simulação)!');
+    setNome('');
+    setEmail('');
+    setTelefone('');
+    setEndereco('');
   };
 
   return (
@@ -27,7 +25,7 @@ const AdopterForm = () => {
       <h1 className={styles.title}>Cadastro de Adotante</h1>
       
       <form onSubmit={handleSubmit}>
-        {/* Campo: Nome Completo [cite: 22] */}
+
         <div className={styles.formGroup}>
           <label htmlFor="nome">Nome Completo</label>
           <input
@@ -39,7 +37,6 @@ const AdopterForm = () => {
           />
         </div>
 
-        {/* Campo: E-mail [cite: 23] */}
         <div className={styles.formGroup}>
           <label htmlFor="email">E-mail</label>
           <input
@@ -51,11 +48,10 @@ const AdopterForm = () => {
           />
         </div>
 
-        {/* Campo: Telefone [cite: 24] */}
         <div className={styles.formGroup}>
           <label htmlFor="telefone">Telefone</label>
           <input
-            type="tel" // Tipo 'tel' é bom para semântica
+            type="tel"
             id="telefone"
             value={telefone}
             onChange={(e) => setTelefone(e.target.value)}
@@ -64,7 +60,6 @@ const AdopterForm = () => {
           />
         </div>
 
-        {/* Campo: Endereço [cite: 25] */}
         <div className={styles.formGroup}>
           <label htmlFor="endereco">Endereço Completo</label>
           <input
