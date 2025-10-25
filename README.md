@@ -111,8 +111,7 @@ node index.js
 ### 📝 Observações
 
 - O frontend ainda será desenvolvido com ReactJS  
-- O backend está pronto para receber dados via API  
-- O `.env` está no `.gitignore` para não ser enviado ao GitHub  
+- O backend está pronto para receber dados via API
 
 ---
 
@@ -127,5 +126,3 @@ Cada membro deve detalhar sua contribuição no GitHub antes da entrega.
 
 - **Backend:** 05/10/2025  
 - **Frontend:** 25/10/2025
-
->>>>>>> equipe/feature/front-end-Sérgio
